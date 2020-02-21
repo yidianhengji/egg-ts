@@ -2,10 +2,14 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
+import ExportSysAdmin from '../../../app/service/SysAdmin';
+import ExportSysRole from '../../../app/service/SysRole';
 import ExportTest from '../../../app/service/Test';
 
 declare module 'egg' {
   interface IService {
+    sysAdmin: ExportSysAdmin;
+    sysRole: ExportSysRole;
     test: ExportTest;
   }
 }

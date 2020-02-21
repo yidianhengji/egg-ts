@@ -30,7 +30,14 @@ export default (appInfo: EggAppInfo) => {
     // 是否加载到 agent 上，默认关闭
     agent: false,
   }
-
+  config.security = {
+    xframe: {
+      enable: false,
+    },
+    csrf: {
+      enable: false
+    },
+  };
   config.sequelize = {
     dialect: 'mysql',
     host: '127.0.0.1',
@@ -38,11 +45,21 @@ export default (appInfo: EggAppInfo) => {
     username: "root",
     password: "123456",
     database: 'cloudcity',
+    timezone: '+08:00',
+    dialectOptions: {
+      dateStrings: true,
+      typeCast: true
+    }
   };
 
   config.logger = {
     outputJSON: true,
     allowDebugAtProd: true
+  }
+
+  config.jwt = {
+    secret: '123456',
+    expiresIn: 600000
   }
 
   // add your special config in here

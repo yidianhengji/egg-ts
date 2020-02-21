@@ -2,23 +2,17 @@
 
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
-  const SysAdmin = app.model.define('tb_sys_admin', {
+  const SysRole = app.model.define('tb_sys_role', {
     uuid: {
       type: STRING,
       primaryKey: true,
     },
     name: STRING,
-    phone: STRING,
-    password: STRING,
-    roleId: {
-      type: STRING,
-      field: 'role_id'
+    description: STRING,
+    isDelete: {
+      type: INTEGER,
+      field: "is_delete"
     },
-    headPic: {
-      type: STRING,
-      field: 'head_pic'
-    },
-    status: INTEGER,
     createTime: {
       type: DATE,
       field: "create_time"
@@ -31,5 +25,5 @@ module.exports = app => {
     freezeTableName: true,
     timestamps: false,
   });
-  return SysAdmin;
+  return SysRole;
 };
